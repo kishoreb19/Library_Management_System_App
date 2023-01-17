@@ -14,7 +14,7 @@ import java.util.List;
 
 public class RegActivity extends AppCompatActivity {
     Button btn4;
-    Spinner spinner2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,19 +26,14 @@ public class RegActivity extends AppCompatActivity {
                 finish();
             }
         });
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
-        List<String> list = new ArrayList<String>();
-        list.add("Select User Type");
-        list.add("Student");
-        list.add("Faculty");
-        list.add("Libranian");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,list);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(arrayAdapter);
+        Spinner spinner2 = findViewById(R.id.spinner2);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.custom_spinner,getResources().getStringArray(R.array.list));
+        adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
+        spinner2.setAdapter(adapter);
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                spinner2.setSelection(i);
+
             }
 
             @Override

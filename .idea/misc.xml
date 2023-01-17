@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/button.xml" value="0.2265" />
         <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/button2.xml" value="0.2265" />
+        <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/circle.xml" value="0.2265" />
         <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/dropdown.xml" value="0.2265" />
         <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2265" />
+        <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/ic_baseline_arrow_drop_down_circle_24.xml" value="0.2265" />
         <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
         <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/input.xml" value="0.2265" />
         <entry key="..\:/AppDev/LMS/app/src/main/res/drawable/lock.xml" value="0.2265" />
@@ -15,6 +17,8 @@
         <entry key="..\:/AppDev/LMS/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/AppDev/LMS/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
         <entry key="..\:/AppDev/LMS/app/src/main/res/layout/activity_reg.xml" value="0.16486486486486487" />
+        <entry key="..\:/AppDev/LMS/app/src/main/res/layout/custom_spinner.xml" value="0.16418918918918918" />
+        <entry key="..\:/AppDev/LMS/app/src/main/res/layout/custom_spinner_dropdown.xml" value="0.16418918918918918" />
       </map>
     </option>
   </component>
