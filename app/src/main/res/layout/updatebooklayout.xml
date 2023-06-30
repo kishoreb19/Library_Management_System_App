@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="410dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/ub_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="18sp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@drawable/input"
+        android:gravity="center"
+        android:hint="Book Name" />
+
+    <EditText
+        android:id="@+id/ub_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:background="@drawable/input"
+        android:inputType="textPersonName"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="Author" />
+
+    <EditText
+        android:id="@+id/ub_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:gravity="center"
+        android:background="@drawable/input"
+        android:inputType="textPersonName"
+        android:hint="Subject"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="18sp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        />
+
+    <Button
+        android:id="@+id/ub_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="right"
+        android:text="Update"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@drawable/button"/>
+</LinearLayout>

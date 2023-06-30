@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.383" />
 
     <Button
-        android:id="@+id/lgn_btn2"
+        android:id="@+id/L_btn"
         android:layout_width="148dp"
         android:layout_height="44dp"
         android:background="@drawable/button"
@@ -58,11 +58,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.802"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/L_pwd"
         app:layout_constraintVertical_bias="0.182" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/L_pwd"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
@@ -78,10 +78,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user" />
+        app:layout_constraintTop_toBottomOf="@+id/L_email" />
 
     <EditText
-        android:id="@+id/user"
+        android:id="@+id/L_email"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/input"
@@ -90,7 +90,7 @@
         android:drawablePadding="10dp"
         android:paddingLeft="10dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Email ID"
         android:inputType="textPersonName"
         android:textColor="@color/gray"
         android:textColorHint="@color/gray"
@@ -100,17 +100,17 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/L_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password ?"
+        android:text="Not Registered ?"
         android:textColor="@color/gray"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lgn_btn2"
+        app:layout_constraintEnd_toStartOf="@+id/L_btn"
         app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/L_pwd"
         app:layout_constraintVertical_bias="0.202" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
