@@ -19,29 +19,7 @@
         app:layout_constraintVertical_bias="0.236"
         app:srcCompat="@drawable/intro" />
 
-    <Button
-        android:id="@+id/lgn_btn"
-        android:layout_width="162dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="72dp"
-        android:background="@drawable/button"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/reg_btn"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/reg_btn"
-        android:layout_width="162dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="72dp"
-        android:background="@drawable/button2"
-        android:text="Register"
-        android:textColor="@color/green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -73,4 +51,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.055" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="262dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <Button
+            android:id="@+id/lgn_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/avail_books_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22dp"
+            android:layout_weight="1"
+            android:textColor="@color/green"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button2"
+            android:text="Available Books" />
+
+        <Button
+            android:id="@+id/reg_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="Register"
+             />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

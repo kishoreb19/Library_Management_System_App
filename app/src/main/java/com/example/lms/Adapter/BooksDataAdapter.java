@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,6 +38,7 @@ public class BooksDataAdapter extends RecyclerView.Adapter<BooksDataAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull BooksDataAdapter.ViewHolder holder, int position) {
+        holder.itemView.startAnimation(AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left));
         holder.bId.setText(Integer.toString(obj.get(position).b_id));
         holder.bName.setText(obj.get(position).b_name);
         holder.bAuthor.setText(obj.get(position).b_author);
@@ -56,11 +58,47 @@ public class BooksDataAdapter extends RecyclerView.Adapter<BooksDataAdapter.View
                 }
             }
         });
-        holder.bId.setOnClickListener(new View.OnClickListener() {
+        //Updating Books
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            TextView ub_name,ub_author,ub_subject;
+            Button u_btn;
             @Override
             public void onClick(View view) {
                 Dialog d = new Dialog(context);
                 d.setContentView(R.layout.updatebooklayout);
+
+
+                ub_name = (TextView) d.findViewById(R.id.ub_name);
+                ub_author = (TextView) d.findViewById(R.id.ub_author);
+                ub_subject = (TextView) d.findViewById(R.id.ub_subject);
+                u_btn = (Button)d.findViewById(R.id.ub_btn);
+                ub_name.setText(obj.get(position).b_name);
+                ub_author.setText(obj.get(position).b_author);
+                ub_subject.setText(obj.get(position).b_subject);
+                u_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        UserDatabase db = new UserDatabase(context);
+                        if(ub_name.getText().toString().length()==0 || ub_author.getText().toString().length()==0 || ub_subject.getText().toString().length()==0){
+                            Toast.makeText(context, "Please fill all the details !", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            long x =db.updateBooks(obj.get(position).b_id,ub_name.getText().toString(),ub_author.getText().toString(),ub_subject.getText().toString());
+                            if(x != -1){
+                                Toast.makeText(context, "Updated Successfully !", Toast.LENGTH_SHORT).show();
+                                d.dismiss();
+
+                                obj.get(position).b_name = ub_name.getText().toString();
+                                obj.get(position).b_author = ub_author.getText().toString();
+                                obj.get(position).b_subject = ub_subject.getText().toString();
+                                notifyItemChanged(position);
+                            }
+                            else{
+                                Toast.makeText(context, "Update Failed !", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
                 d.show();
             }
         });

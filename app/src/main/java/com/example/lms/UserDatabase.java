@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
+import java.util.ArrayList;
 
 public class UserDatabase extends SQLiteOpenHelper {
     private static final String DATABASENAME = "lmsdb.db";
@@ -18,6 +18,7 @@ public class UserDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE user (id INTEGER PRIMARY KEY AUTOINCREMENT,type TEXT,name TEXT,email TEXT,password TEXT)");
         sqLiteDatabase.execSQL("CREATE TABLE books(book_id INTEGER PRIMARY KEY AUTOINCREMENT,book_name TEXT,book_author TEXT,book_subject TEXT)");
+        sqLiteDatabase.execSQL("CREATE TABLE location(loc_id INTEGER PRIMARY KEY AUTOINCREMENT,latitude TEXT,longitude TEXT,address TEXT,range Text)");
     }
 
     @Override
@@ -70,16 +71,52 @@ public class UserDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM books",null);
     }
-    public long updateBooks(String bk_name,String bk_author,String bk_subject){
+    public long updateBooks(int id,String bk_name,String bk_author,String bk_subject){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("book_name",bk_name);
         cv.put("book_author",bk_author);
         cv.put("book_subject",bk_subject);
-        return db.update("books",cv,"book_name = ?" ,new String[]{bk_name});
+        return db.update("books",cv,"book_id = ?" ,new String[]{Integer.toString(id)});
     }
     public long delBooksRecord(String b_id,String b_name){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("books","book_id = ? AND book_name = ?",new String[]{b_id,b_name});
+    }
+    public ArrayList<String> getLibrarians(){
+        ArrayList<String>data = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        CircularEncryption ce = new CircularEncryption();
+        Cursor c = db.rawQuery("SELECT email from user where type = ?",new String[]{"Librarian"});
+        int i=-1;
+        String s[] = new String[c.getCount()-1];
+        while (c.moveToNext()){
+            //i++;
+            //s[i] = ce.circularEncryption(c.getString(0),-3,-5);
+            data.add(ce.circularEncryption(c.getString(0),-3,-5));
+        }
+        return data;
+    }
+    public long insertLocation(double latitude,double longitude,String address,String range){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("latitude",latitude);
+        cv.put("longitude",longitude);
+        cv.put("address",address);
+        cv.put("range",range);
+        return db.insert("location",null,cv);
+    }
+    public Cursor getLocationDetails(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("select latitude,longitude,address,range from location",null);
+    }
+    public long updateLocationDetails(double latitude,double longitude,String address,String range){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("latitude",latitude);
+        cv.put("longitude",longitude);
+        cv.put("address",address);
+        cv.put("range",range);
+        return db.update("location",cv,"loc_id = ?",new String[]{"1"});
     }
 }

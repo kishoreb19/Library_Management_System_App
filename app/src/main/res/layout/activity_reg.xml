@@ -100,29 +100,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/r_email" />
 
-    <Button
-        android:id="@+id/register_btn"
-        android:layout_width="148dp"
-        android:layout_height="44dp"
-        android:background="@drawable/button"
-        android:text="Register"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/r_pwd"
-        app:layout_constraintVertical_bias="0.239" />
+        app:layout_constraintVertical_bias="0.16000003">
 
-    <TextView
-        android:id="@+id/R_lgn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tap to Login"
-        android:textColor="@color/gray"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/register_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r_pwd"
-        app:layout_constraintVertical_bias="0.266" />
+        <TextView
+            android:id="@+id/R_lgn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tap to Login"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="148dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="Register" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

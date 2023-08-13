@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="wrap_content">
-    <View
-        android:layout_height="1dp"
-        android:layout_width="match_parent"
-        android:background="#ecf0f1"
-        android:layout_margin="2dp"
-        />
     <TableRow
         android:layout_width="match_parent"
+        android:paddingBottom="10dp"
         android:layout_height="match_parent" >
 
         <TextView
-            android:id="@+id/bId"
+            android:id="@+id/bIdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ID"
@@ -25,7 +19,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/bName"
+            android:id="@+id/bNamee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name"
@@ -35,7 +29,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/bAuthor"
+            android:id="@+id/bAuthorr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="author"
@@ -45,7 +39,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/bSubj"
+            android:id="@+id/bSubjj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="subject"
@@ -53,12 +47,14 @@
             android:textSize="18sp"
 
             android:textColor="@color/black"/>
-
-        <ImageView
-            android:id="@+id/del_img_books"
+        <Button
+            android:id="@+id/issue_btn"
+            android:layout_height="32dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/cross" />
+            android:text="Issue"
+            android:background="@drawable/button3"
+            android:textAllCaps="true"
+            />
 
 
     </TableRow>

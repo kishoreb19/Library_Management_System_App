@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lms.CircularEncryption;
 import com.example.lms.R;
 import com.example.lms.UserDatabase;
 
@@ -33,6 +35,7 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.itemView.startAnimation(AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left));
         holder.u_type.setText(obj.get(position).u_type);
         holder.u_name.setText(obj.get(position).u_name);
         holder.u_email.setText(obj.get(position).u_email);
@@ -40,7 +43,8 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 UserDatabase db = new UserDatabase(context.getApplicationContext());
-                long x = db.delRecord(obj.get(position).u_email,obj.get(position).u_type);
+                CircularEncryption ce = new CircularEncryption();
+                long x = db.delRecord(ce.circularEncryption(obj.get(position).u_email,3,5),obj.get(position).u_type);
                 if(x != -1){
                     Toast.makeText(context, "Deleted Successfully !", Toast.LENGTH_SHORT).show();
                     obj.remove(position);
