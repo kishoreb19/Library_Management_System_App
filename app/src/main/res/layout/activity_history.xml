@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".LibranianAct">
+    tools:context=".HistoryActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -42,7 +42,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/records_user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Details"
@@ -58,14 +58,13 @@
             android:layout_gravity="center_vertical">
 
             <ImageView
-                android:id="@+id/logout_img2"
+                android:id="@+id/logout_img02"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentRight="true"
                 app:srcCompat="@drawable/baseline_logout_24" />
         </RelativeLayout>
     </LinearLayout>
-
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="386dp"
@@ -89,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="User Type"
+                android:text="Email"
                 android:textColor="@color/gray"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -100,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:text="Name"
+                android:text="Book Name"
                 android:textColor="@color/gray"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -111,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                android:text="Email"
+                android:text="Issue Date"
                 android:textColor="@color/gray"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -121,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Delete"
+                android:text="Returned"
                 android:textColor="@color/gray"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -129,71 +128,27 @@
         </TableRow>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/users_rv"
+            android:id="@+id/history_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </TableLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
+        android:layout_marginTop="90dp"
         android:padding="10dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/records"
-                android:layout_width="148dp"
-                android:layout_height="44dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:text="Records" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/records_back"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/back_btn"
-                android:layout_width="148dp"
-                android:layout_height="44dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:text="Back" />
-
-            <ImageButton
-                android:id="@+id/location_btn"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:src="@drawable/baseline_location_on_24" />
-
-            <Button
-                android:id="@+id/book_btn"
-                android:layout_width="148dp"
-                android:layout_height="44dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:text="Manage Books" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="Back" />
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

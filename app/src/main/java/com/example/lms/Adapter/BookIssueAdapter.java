@@ -21,9 +21,11 @@ import java.util.ArrayList;
 public class BookIssueAdapter extends RecyclerView.Adapter<BookIssueAdapter.ViewHolder> {
     ArrayList<BooksDataSet>obj;
     Context context;
-    public BookIssueAdapter(Context context,ArrayList<BooksDataSet>obj){
+    String email_id;
+    public BookIssueAdapter(Context context,ArrayList<BooksDataSet>obj,String email_id){
         this.context = context;
         this.obj = obj;
+        this.email_id = email_id;
     }
 
     @NonNull
@@ -66,6 +68,10 @@ public class BookIssueAdapter extends RecyclerView.Adapter<BookIssueAdapter.View
                 i.putExtra(Intent.EXTRA_SUBJECT,Subject);
                 i.putExtra(Intent.EXTRA_TEXT,msg);
                 i.setType("message/rfc822");
+                UserDatabase db = new UserDatabase(context);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    db.addRecordsHistory(email_id,holder.B_namee.getText().toString(),LocalDate.now().toString());
+                }
                 context.startActivity(Intent.createChooser(i,"Choose an Email Client "));
             }
         });

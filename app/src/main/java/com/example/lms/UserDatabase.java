@@ -19,6 +19,7 @@ public class UserDatabase extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("CREATE TABLE user (id INTEGER PRIMARY KEY AUTOINCREMENT,type TEXT,name TEXT,email TEXT,password TEXT)");
         sqLiteDatabase.execSQL("CREATE TABLE books(book_id INTEGER PRIMARY KEY AUTOINCREMENT,book_name TEXT,book_author TEXT,book_subject TEXT)");
         sqLiteDatabase.execSQL("CREATE TABLE location(loc_id INTEGER PRIMARY KEY AUTOINCREMENT,latitude TEXT,longitude TEXT,address TEXT,range Text)");
+        sqLiteDatabase.execSQL("CREATE TABLE records(user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_email TEXT,book_name TEXT,issue_date TEXT)");
     }
 
     @Override
@@ -118,5 +119,21 @@ public class UserDatabase extends SQLiteOpenHelper {
         cv.put("address",address);
         cv.put("range",range);
         return db.update("location",cv,"loc_id = ?",new String[]{"1"});
+    }
+    public long addRecordsHistory(String user_email,String book_name,String issue_date){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("user_email",user_email);
+        cv.put("book_name",book_name);
+        cv.put("issue_date",issue_date);
+        return db.insert("records",null,cv);
+    }
+    public Cursor showHistoryRecords(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT user_email, book_name, issue_date FROM records",null);
+    }
+    public long returnedBook(String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("records","user_email = ?",new String[]{email});
     }
 }

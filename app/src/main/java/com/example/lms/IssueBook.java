@@ -22,6 +22,7 @@ public class IssueBook extends AppCompatActivity {
     RecyclerView rv_issue;
     BookIssueAdapter adapter;
     ArrayList<BooksDataSet>data= new ArrayList<>();
+
     TextView head,u_email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class IssueBook extends AppCompatActivity {
         }
         rv_issue = (RecyclerView) findViewById(R.id.bookIssue_rv);
         rv_issue.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new BookIssueAdapter(this,data);
+        adapter = new BookIssueAdapter(this,data,getIntent().getStringExtra("email"));
         rv_issue.setAdapter(adapter);
     }
 }

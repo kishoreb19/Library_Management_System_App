@@ -23,10 +23,11 @@ import java.util.ArrayList;
 public class LibranianAct extends AppCompatActivity {
     ArrayList<UserDataSet> data = new ArrayList<>();
     RecyclerView rv;
-    Button bck_btn,book_btn;
+    Button bck_btn,book_btn,history_btn;
     TextView h_email;
     ImageView img_logout;
     ImageButton location_btn;
+    String userEmailId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,8 @@ public class LibranianAct extends AppCompatActivity {
             }
         });
         h_email = (TextView) findViewById(R.id.textView10);
-        h_email.setText(getIntent().getStringExtra("email"));
+        userEmailId = getIntent().getStringExtra("email");
+        h_email.setText(userEmailId);
         UserDatabase obj = new UserDatabase(this);
         Cursor c = obj.getUserRecords();
         CircularEncryption ce = new CircularEncryption();
@@ -73,6 +75,15 @@ public class LibranianAct extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LibranianAct.this,BooksAct.class));
+            }
+        });
+        history_btn = (Button) findViewById(R.id.records);
+        history_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LibranianAct.this,HistoryActivity.class);
+                i.putExtra("history_user_email_head",userEmailId);
+                startActivity(i);
             }
         });
     }

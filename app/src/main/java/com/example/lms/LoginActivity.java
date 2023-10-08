@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(i);
                             //Toast.makeText(LoginActivity.this, "Coming Soon !", Toast.LENGTH_SHORT).show();
                             }else{
-                                Log.d("MK",Double.toString(distance));
+                                //Log.d("MK",Double.toString(distance));
                                 Toast.makeText(context, "Please be within "+ range+"km of Library Location", Toast.LENGTH_SHORT).show();
                             }
                         }
